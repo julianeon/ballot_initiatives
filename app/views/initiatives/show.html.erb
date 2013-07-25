@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Election date:</strong>
+  <%= @initiative.election_date %>
+</p>
+
+<p>
+  <strong>Prop letter:</strong>
+  <%= @initiative.prop_letter %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @initiative.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @initiative.description %>
+</p>
+
+<p>
+  <strong>Pass fail:</strong>
+  <%= @initiative.pass_fail %>
+</p>
+
+<p>
+  <strong>Yes count:</strong>
+  <%= @initiative.yes_count %>
+</p>
+
+<p>
+  <strong>No count:</strong>
+  <%= @initiative.no_count %>
+</p>
+
+<p>
+  <strong>Percent required:</strong>
+  <%= @initiative.percent_required %>
+</p>
+
+<p>
+  <strong>Measure type:</strong>
+  <%= @initiative.measure_type %>
+</p>
+
+<p>
+  <strong>Initiator:</strong>
+  <%= @initiative.initiator %>
+</p>
+
+<p>
+  <strong>Scan url:</strong>
+  <%= @initiative.scan_url %>
+</p>
+
+<%= link_to 'Edit', edit_initiative_path(@initiative) %> |
+<%= link_to 'Back', initiatives_path %>

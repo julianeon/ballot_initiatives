@@ -1,0 +1,47 @@
+<h1>Listing initiatives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Election date</th>
+      <th>Prop letter</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Pass fail</th>
+      <th>Yes count</th>
+      <th>No count</th>
+      <th>Percent required</th>
+      <th>Measure type</th>
+      <th>Initiator</th>
+      <th>Scan url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @initiatives.each do |initiative| %>
+      <tr>
+        <td><%= initiative.election_date %></td>
+        <td><%= initiative.prop_letter %></td>
+        <td><%= initiative.title %></td>
+        <td><%= initiative.description %></td>
+        <td><%= initiative.pass_fail %></td>
+        <td><%= initiative.yes_count %></td>
+        <td><%= initiative.no_count %></td>
+        <td><%= initiative.percent_required %></td>
+        <td><%= initiative.measure_type %></td>
+        <td><%= initiative.initiator %></td>
+        <td><%= initiative.scan_url %></td>
+        <td><%= link_to 'Show', initiative %></td>
+        <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
+        <td><%= link_to 'Destroy', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Initiative', new_initiative_path %>

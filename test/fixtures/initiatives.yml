@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  election_date: 2013-07-25 11:27:59
+  prop_letter: MyString
+  title: MyString
+  description: MyText
+  pass_fail: false
+  yes_count: 1
+  no_count: 1
+  percent_required: MyString
+  measure_type: MyString
+  initiator: MyString
+  scan_url: MyString
+
+two:
+  election_date: 2013-07-25 11:27:59
+  prop_letter: MyString
+  title: MyString
+  description: MyText
+  pass_fail: false
+  yes_count: 1
+  no_count: 1
+  percent_required: MyString
+  measure_type: MyString
+  initiator: MyString
+  scan_url: MyString

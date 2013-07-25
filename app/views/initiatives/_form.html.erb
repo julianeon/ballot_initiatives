@@ -1,0 +1,61 @@
+<%= form_for(@initiative) do |f| %>
+  <% if @initiative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@initiative.errors.count, "error") %> prohibited this initiative from being saved:</h2>
+
+      <ul>
+      <% @initiative.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :election_date %><br>
+    <%= f.datetime_select :election_date %>
+  </div>
+  <div class="field">
+    <%= f.label :prop_letter %><br>
+    <%= f.text_field :prop_letter %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :pass_fail %><br>
+    <%= f.check_box :pass_fail %>
+  </div>
+  <div class="field">
+    <%= f.label :yes_count %><br>
+    <%= f.number_field :yes_count %>
+  </div>
+  <div class="field">
+    <%= f.label :no_count %><br>
+    <%= f.number_field :no_count %>
+  </div>
+  <div class="field">
+    <%= f.label :percent_required %><br>
+    <%= f.text_field :percent_required %>
+  </div>
+  <div class="field">
+    <%= f.label :measure_type %><br>
+    <%= f.text_field :measure_type %>
+  </div>
+  <div class="field">
+    <%= f.label :initiator %><br>
+    <%= f.text_field :initiator %>
+  </div>
+  <div class="field">
+    <%= f.label :scan_url %><br>
+    <%= f.text_field :scan_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
