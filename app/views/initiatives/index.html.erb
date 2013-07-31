@@ -1,4 +1,4 @@
-<h1>California initiatives</h1>
+<h1>California Initiatives</h1>
 
 <table>
   <thead>
@@ -6,7 +6,6 @@
       <th>Election date</th>
       <th>Prop letter</th>
       <th>Title</th>
-      <th>Description</th>
       <th>Passed</th>
       <th>Yes Votes</th>
       <th>No Votes</th>
@@ -14,6 +13,7 @@
       <th>Measure</th>
       <th>Sponsor</th>
       <th>Url</th>
+      <th>Description</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,11 +22,10 @@
 
   <tbody>
     <% @initiatives.each do |initiative| %>
-      <tr>
-        <td><%= initiative.election_date %></td>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>" >
+        <td><%= initiative.election_date.strftime("%m-%d-%y") %></td>
         <td><%= initiative.prop_letter %></td>
         <td><%= initiative.title %></td>
-        <td><%= initiative.description %></td>
         <td><%= initiative.pass_fail %></td>
         <td><%= initiative.yes_count %></td>
         <td><%= initiative.no_count %></td>
@@ -34,9 +33,7 @@
         <td><%= initiative.measure_type %></td>
         <td><%= initiative.initiator %></td>
         <td><%= initiative.scan_url %></td>
-        <td><%= link_to 'Show', initiative %></td>
-        <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
-        <td><%= link_to 'Destroy', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Show', initiative, :method => :get %></td>
       </tr>
     <% end %>
   </tbody>
