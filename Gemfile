@@ -9,7 +9,7 @@ gem 'sqlite3', '>= 1.3.3', :group => :development
 gem 'pg', "~> 0.16.0"
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'sass-rails'#, '~> 4.0.0.rc1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,7 +30,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 #gem 'sass-rails'
-gem 'compass-rails'
+#gem 'compass-rails'
 gem 'bootstrap-sass'
 
 group :doc do
