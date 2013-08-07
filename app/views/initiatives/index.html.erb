@@ -1,8 +1,12 @@
+<% content_for :header do -%>
+  <%= javascript_include_tag 'initiativer' %>
+<% end -%>
+
 <h1>San Francisco Initiatives</h1>
 
 <%= paginate @initiatives %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Election date</th>
