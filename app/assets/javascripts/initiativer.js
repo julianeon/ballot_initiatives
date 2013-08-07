@@ -1,0 +1,9 @@
+$(document).ready(function(){
+  $('tr').mouseover(
+    function(){
+      $(this).addClass("highlight");
+   }).mouseout(
+   function(){
+      $(this).removeClass("highlight");
+   });
+});
