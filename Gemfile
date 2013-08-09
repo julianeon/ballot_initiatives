@@ -6,7 +6,11 @@ gem 'rails', '4.0.0.rc1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '>= 1.3.3', :group => :development
 
-gem 'pg', "~> 0.16.0"
+gem 'bcrypt-ruby', '3.0.1'
+
+group :production do
+	gem 'pg', "~> 0.16.0"
+end
 
 group :assets do
   # Use SCSS for stylesheets
