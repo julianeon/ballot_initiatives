@@ -3,6 +3,17 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def create
+		@user = User.new(params[:user])
+
+		if @user.save
+			flash[:success] = "Signup successful - welcome to SF Initiatives!"
+			redirect_to @user
+		else
+			render 'new'
+		end
+	end
+
 	def index
 	end
 
