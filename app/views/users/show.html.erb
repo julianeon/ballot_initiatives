@@ -2,8 +2,9 @@
 	<aside class="span4">
 		<section>
 			<h1>
-			<%= @user.email %>
-			<%= @user.name %>
+				<%= gravatar_for @user %>
+				<%= @user.email %>
+				<%= @user.name %>
 			</h1>
 		</section>
 	</aside>
