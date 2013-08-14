@@ -8,6 +8,8 @@ gem 'sqlite3', '>= 1.3.3', :group => :development
 
 gem 'bcrypt-ruby', '3.0.1'
 
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4' 
+
 group :production do
 	gem 'pg', "~> 0.16.0"
 end
