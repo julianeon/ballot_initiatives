@@ -9,6 +9,9 @@ gem 'sqlite3', '>= 1.3.3', :group => :development
 gem 'bcrypt-ruby', '3.0.1'
 
 gem 'devise', github: 'plataformatec/devise', branch: 'rails4' 
+# gem 'devise', '3.0.0.rc'
+
+# gem 'protected_attributes'
 
 group :production do
 	gem 'pg', "~> 0.16.0"
