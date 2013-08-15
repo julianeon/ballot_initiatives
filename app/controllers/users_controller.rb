@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :signed_in_user, only: [:edit, :update]
+	before_filter :correct_user,   only: [:edit, :update]
 
 	def new
 		@user = User.new
@@ -49,6 +50,12 @@ class UsersController < ApplicationController
 		# Define signed_in_user - for actions only accessible to signed-in users
 		def signed_in_user
 			redirect_to signin_path, notice: "Please sign in." unless signed_in?
+		end
+
+		# Define correct_user - ensure the user can only edit/update their own profiles
+		def correct_user
+			@user = User.find(params[:id])
+			redirect_to(root_path) unless current_user?(@user)
 		end
 
 end
