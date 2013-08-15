@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 	end
 
 	private
+		# Rails 4 replacement for attr_accessible in User model
 		def app_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
 		end
