@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_filter :signed_in_user, only: [:edit, :update]
+
 	def new
 		@user = User.new
 	end
@@ -42,6 +44,11 @@ class UsersController < ApplicationController
 		# Rails 4 replacement for attr_accessible in User model
 		def app_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
+		end
+
+		# Define signed_in_user - for actions only accessible to signed-in users
+		def signed_in_user
+			redirect_to signin_path, notice: "Please sign in." unless signed_in?
 		end
 
 end
