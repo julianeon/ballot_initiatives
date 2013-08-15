@@ -49,7 +49,10 @@ class UsersController < ApplicationController
 
 		# Define signed_in_user - for actions only accessible to signed-in users
 		def signed_in_user
-			redirect_to signin_path, notice: "Please sign in." unless signed_in?
+			unless signed_in?
+				store_location
+				redirect_to signin_path, notice: "Please sign in."
+			end
 		end
 
 		# Define correct_user - ensure the user can only edit/update their own profiles
