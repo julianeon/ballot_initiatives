@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
-	attr_accessible :name, :email, :password_confirmation
-
-	# DeviseController.class_eval do
-	# 	def resource_params
-	# 		unless params[resource_name].blank?
-	# 			params.require(resource_name).permit(:name, :email, :password_confirmation)
-	# 		end
-	# 	end
-	# end
+	DeviseController.class_eval do
+		def resource_params
+			unless params[resource_name].blank?
+				params.require(resource_name).permit(:name, :email, :password_confirmation)
+			end
+		end
+	end
 	
 	has_secure_password
 
