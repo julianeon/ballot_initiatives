@@ -6,9 +6,14 @@ gem 'rails', '4.0.0.rc1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '>= 1.3.3', :group => :development
 
+# bcrypt-ruby for secure passwords for Users
 gem 'bcrypt-ruby', '3.0.1'
 
-gem 'devise', github: 'plataformatec/devise', branch: 'rails4' 
+# Pagination
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
+
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 
 group :production do
 	gem 'pg', "~> 0.16.0"
