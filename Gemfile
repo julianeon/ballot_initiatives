@@ -9,10 +9,6 @@ gem 'sqlite3', '>= 1.3.3', :group => :development
 # bcrypt-ruby for secure passwords for Users
 gem 'bcrypt-ruby', '3.0.1'
 
-# Pagination
-gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
-
 gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 
 group :production do
