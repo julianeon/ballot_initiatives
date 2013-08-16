@@ -1,11 +1,17 @@
 <div class="row">
 	<aside class="span4">
-		<section>
-			<h1>
-				<%= gravatar_for @user %>
-				<%= @user.email %>
-				<%= @user.name %>
-			</h1>
-		</section>
+
+		<table>
+			<tr>
+				<td><%= gravatar_for @user %></td>
+				<td>
+					<table>
+						<tr><td><%= @user.email %></td></tr>
+						<tr><td><%= @user.name  %></td></tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
 	</aside>
 </div>
