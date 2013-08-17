@@ -7,7 +7,7 @@ BallotInitiatives::Application.routes.draw do
 	root 'initiatives#index'
 
 	# Signup, sign-in and sign-out paths
-	get '/signup',  to: 'users#new'
-	get '/signin',  to: 'sessions#new'
-	get '/signout', to: 'sessions#destroy', via: :delete
+	get    '/signup',  to: 'users#new'
+	get    '/signin',  to: 'sessions#new'
+	delete '/signout', to: 'sessions#destroy'
 end
