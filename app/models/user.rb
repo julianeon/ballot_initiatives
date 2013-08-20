@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 	has_secure_password
 
+	# Association(s)
+	has_many :initiatives, dependent: :destroy
+
 	# Callbacks
 	# before_save { |user| user.email = email.downcase }
 	before_save { self.email.downcase! }
