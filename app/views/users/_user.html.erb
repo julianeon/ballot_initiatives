@@ -1,9 +1,17 @@
 <li>
-	<%= gravatar_for user, size: 52 %>
-	<%= link_to user.name, user %>
+	
+	<table>
+		<tr>
+			<td><%= gravatar_for user, size: 52 %></td>
+			<td><%= link_to user.name, user %></td>
 
-	<!-- For admins - delete user link -->
-	<% if current_user.admin? && !current_user?(user) %>
-		| <%= link_to "delete", user, method: :delete, confirm: "You sure?" %>
-	<% end %>
+			<td>
+				<!-- For admins - delete user link -->
+				<% if current_user.admin? && !current_user?(user) %>
+					| <%= link_to "delete", user, method: :delete, confirm: "You sure?" %>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+
 </li>
