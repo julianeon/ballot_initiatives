@@ -49,6 +49,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@initiatives = @user.initiatives
 	end
 
 	def destroy
@@ -68,14 +69,6 @@ class UsersController < ApplicationController
 		# Rails 4 replacement for attr_accessible in User model
 		def user_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
-		end
-
-		# Define signed_in_user - for actions only accessible to signed-in users
-		def signed_in_user
-			unless signed_in?
-				store_location
-				redirect_to signin_path, notice: "Please sign in."
-			end
 		end
 
 		# Define correct_user - ensure the user can only edit/update their own profiles
