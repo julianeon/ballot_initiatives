@@ -1,6 +1,6 @@
 BallotInitiatives::Application.routes.draw do
-	resources :initiatives
 	resources :users
+	resources :initiatives
 	resources :sessions, only: [:new, :create, :destroy]
 
 	# Root path
