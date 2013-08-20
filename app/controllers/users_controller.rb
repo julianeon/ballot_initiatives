@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_filter :signed_in_user, only: [:edit, :update, :index, :destroy]
 	before_filter :correct_user,   only: [:edit, :update, :show]
-	before_filter :admin_user,     only: [:destroy]
+	before_filter :admin_user,     only: [:destroy, :index]
 
 	def new
 		if signed_in?
@@ -44,11 +44,7 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		if current_user.admin?
-			@users = User.all.page(params[:page])
-		else
-			redirect_to root_path
-		end
+		@users = User.all.page(params[:page])
 	end
 
 	def show
