@@ -14,4 +14,17 @@
 		</table>
 
 	</aside>
+
+	<div class="span8">
+		<% if @user.initiatives.any? %>
+			<h3>Posted Initiatives: (<%= @user.initiatives.count %>)</h3>
+
+			<ol class="initiatives">
+				<%= render @initiatives %>
+			</ol>
+
+			<%= paginate @initiatives %>
+		<% end %>
+	</div>
+
 </div>
