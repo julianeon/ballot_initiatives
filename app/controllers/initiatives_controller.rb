@@ -22,7 +22,7 @@ class InitiativesController < ApplicationController
 	# POST /initiatives
 	# POST /initiatives.json
 	def create
-		@initiative = current_user.initiatives.build(params[initiative_params])
+		@initiative = current_user.initiatives.build(initiative_params)
 
 		respond_to do |format|
 			if @initiative.save
