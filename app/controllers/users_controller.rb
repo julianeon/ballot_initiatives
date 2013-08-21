@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@initiatives = @user.initiatives
+		@initiatives = @user.initiatives.page(params[:page])
 	end
 
 	def destroy
