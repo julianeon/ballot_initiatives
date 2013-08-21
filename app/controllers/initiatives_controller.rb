@@ -1,6 +1,7 @@
 class InitiativesController < ApplicationController
 	before_action :set_initiative, only: [:show, :edit, :update, :destroy]
-	before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+	before_filter :signed_in_user, only: [:new, :create, :update]
+	before_filter :correct_user,   only: [:edit, :update, :destroy]
 
 	# GET /initiatives
 	# GET /initiatives.json
@@ -66,6 +67,10 @@ class InitiativesController < ApplicationController
 		# Use callbacks to share common setup or constraints between actions.
 		def set_initiative
 			@initiative = Initiative.find(params[:id])
+		end
+
+		def correct_user
+			redirect_to root_path unless (current_user.admin? || current_user == @initiative.user)
 		end
 
 		# Never trust parameters from the scary internet, only allow the white list through.
