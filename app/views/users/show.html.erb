@@ -19,9 +19,9 @@
 		<% if @user.initiatives.any? %>
 			<h3>Posted Initiatives: (<%= @user.initiatives.count %>)</h3>
 
-			<ol class="initiatives">
+			<ul class="initiatives no-bul">
 				<%= render @initiatives %>
-			</ol>
+			</ul>
 
 			<%= paginate @initiatives %>
 		<% end %>
