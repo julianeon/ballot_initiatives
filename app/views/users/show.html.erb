@@ -15,13 +15,31 @@
 
 	</aside>
 
-	<div class="span8">
+	<div class="initiatives span8">
 		<% if @user.initiatives.any? %>
 			<h3>Posted Initiatives: (<%= @user.initiatives.count %>)</h3>
 
-			<ul class="initiatives no-bul">
-				<%= render @initiatives %>
-			</ul>
+			<table>
+				<thead>
+					<tr>
+						<th>Initiative ID</th>
+						<th>Title</th>
+						<th>Passed</th>
+						<th>Measure</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @initiatives.each do |initiative| %>
+						<tr class="<%= cycle('list_line_odd', 'list_line_even') %>" >
+							<td><%= initiative.id %></td>
+							<td><%= link_to initiative.title, initiative %></td>
+							<td><%= initiative.pass_fail ? "yes" : "no" %></td>
+							<td><%= initiative.measure_type %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
 
 			<%= paginate @initiatives %>
 		<% end %>
