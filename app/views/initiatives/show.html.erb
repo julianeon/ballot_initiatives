@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Posted by:</strong>
+  <%= @initiative.user.name %>
+</p>
+
+<hr>
+
+<p>
   <strong>Election date:</strong>
   <%= @initiative.election_date %>
 </p>
