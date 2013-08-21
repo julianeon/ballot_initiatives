@@ -1,6 +1,6 @@
 class InitiativesController < ApplicationController
 	before_action :set_initiative, only: [:show, :edit, :update, :destroy]
-	before_filter :signed_in_user, only: [:new, :create, :destroy]
+	before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
 
 	# GET /initiatives
 	# GET /initiatives.json
