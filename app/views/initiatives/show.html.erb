@@ -62,15 +62,17 @@
   <%= @initiative.scan_url %>
 </p>
 
+<hr>
+
 <table>
   <tr>
     <% if current_user == @initiative.user || current_user.admin? %>
       <td> <%= link_to 'Edit',   edit_initiative_path(@initiative) %>    | </td>
-      <td> <%= link_to "Delete", @initiative, method: :delete, confirm: "You sure?" %> | </td>
+      <td> <%= link_to 'Delete', @initiative, method: :delete, confirm: "You sure?" %> | </td>
     <% end %>
 
     <td>
-      <%= link_to 'Back', initiatives_path %>
+      <%= link_to 'Index', initiatives_path %>
     </td>
   </tr>
 </table>
