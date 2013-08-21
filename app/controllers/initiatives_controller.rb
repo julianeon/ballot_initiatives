@@ -21,7 +21,7 @@ class InitiativesController < ApplicationController
 	# POST /initiatives
 	# POST /initiatives.json
 	def create
-		@initiative = Initiative.new(initiative_params)
+		@initiative = current_user.initiatives.build(params[initiative_params])
 
 		respond_to do |format|
 			if @initiative.save
@@ -70,6 +70,6 @@ class InitiativesController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def initiative_params
-			params.require(:initiative).permit(:election_date, :prop_letter, :title, :description, :pass_fail, :yes_count, :no_count, :percent_required, :measure_type, :initiator, :scan_url)
+			params.require(:initiative).permit(:election_date, :prop_letter, :title, :description, :pass_fail, :yes_count, :no_count, :percent_required, :measure_type, :initiator, :scan_url, :user_id)
 		end
 end
