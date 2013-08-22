@@ -49,14 +49,14 @@ class UsersController < ApplicationController
 
 		if @req == "std" # If the viewer wants to filter only standard (non-admin) users...
 			# ...the @users collection is all non-admin users.
-			@users = User.where(:admin => false).page(params[:page])
+			@users = User.alphabetically.where(:admin => false).page(params[:page])
 
 		elsif @req == "adm" # If the viewer wants to filter only admin users...
 			# ...the @users collection is all admin users.
-			@users = User.where(:admin => true).page(params[:page])
+			@users = User.alphabetically.where(:admin => true).page(params[:page])
 
 		else # Otherwise, the default @users collection is all users.
-			@users = User.all.page(params[:page])
+			@users = User.alphabetically.page(params[:page])
 		end
 	end
 

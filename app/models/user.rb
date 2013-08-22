@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 	before_save { self.email.downcase! }
 	before_save :create_remember_token
 
+	# Ordering
+  scope :alphabetically, order("admin DESC", "name ASC")
+
 	# Validations
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
