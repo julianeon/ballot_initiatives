@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_filter :signed_in_user, only: [:edit, :update, :index, :destroy]
 	before_filter :correct_user,   only: [:edit, :update, :show]
-	before_filter :admin_user,     only: [:destroy, :index]
+	before_filter :admin_user,     only: [:destroy, :index, :p_admin, :d_admin]
 
 	def new
 		if signed_in?
@@ -75,6 +75,30 @@ class UsersController < ApplicationController
 			user_to_nuke.destroy
 			flash[:success] = "User destroyed."
 			redirect_to users_path
+		end
+	end
+
+	# Promote a user to an admin (admin-only power)
+	def p_admin
+		@user = User.find(params[:id])
+		@user.update_attribute(:admin, true)
+
+		redirect_to users_path
+		flash[:success] = "Admin permissions set for '#{@user.name}'."
+	end
+
+	# Demote an admin to standard user (admin-only power)
+	def d_admin
+		@user = User.find(params[:id])
+
+		if @user == current_user
+			redirect_to users_path
+			flash[:notice] = "You cannot revoke your own admin permissions."
+		else
+			@user.update_attribute(:admin, false)
+
+			redirect_to users_path
+			flash[:success] = "Admin permissions revoked for '#{@user.name}'."
 		end
 	end
 
