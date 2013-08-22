@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_filter :signed_in_user, only: [:edit, :update, :index, :destroy]
 	before_filter :correct_user,   only: [:edit, :update, :show]
-	before_filter :admin_user,     only: [:destroy, :index, :p_admin, :d_admin]
+	before_filter :admin_user,     only: [:destroy, :index, :make_admin, :revoke_admin]
 
 	def new
 		if signed_in?
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
 	end
 
 	# Promote a user to an admin (admin-only power)
-	def p_admin
+	def make_admin
 		@user = User.find(params[:id])
 		@user.update_attribute(:admin, true)
 
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
 	end
 
 	# Demote an admin to standard user (admin-only power)
-	def d_admin
+	def revoke_admin
 		@user = User.find(params[:id])
 
 		if @user == current_user

@@ -12,6 +12,6 @@ BallotInitiatives::Application.routes.draw do
 	delete '/signout', to: 'sessions#destroy'
 
 	# Give/Revoke admin permissions paths
-	get 'p_admin', to: 'users#p_admin'
-	get 'd_admin', to: 'users#d_admin'
+	get 'make_admin',   to: 'users#make_admin'
+	get 'revoke_admin', to: 'users#revoke_admin'
 end

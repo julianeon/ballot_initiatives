@@ -7,12 +7,12 @@
 
 			<!-- For admins - promote-to-admin link -->
 			<% if current_user.admin? && !user.admin? %>
-				<td> | <%= link_to "promote to admin", p_admin_path(:id => user.id), confirm: "You sure?" %> </td>
+				<td> | <%= link_to "promote to admin", make_admin_path(:id => user.id), confirm: "You sure?" %> </td>
 			<% end %>
 
 			<!-- For admins - demote-from-admin link -->
 			<% if current_user.admin? && user.admin? && !current_user?(user) %>
-				<td> | <%= link_to "demote from admin", d_admin_path(:id => user.id), confirm: "You sure?" %> </td>
+				<td> | <%= link_to "demote from admin", revoke_admin_path(:id => user.id), confirm: "You sure?" %> </td>
 			<% end %>
 
 			<!-- For admins - delete user link -->
