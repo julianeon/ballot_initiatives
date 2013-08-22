@@ -74,7 +74,7 @@ class UsersController < ApplicationController
 		# Define correct_user - ensure the user can only edit/update their own profiles
 		def correct_user
 			@user = User.find(params[:id])
-			redirect_to(root_path) unless current_user?(@user)
+			redirect_to(root_path) unless current_user?(@user) || current_user.admin?
 		end
 
 		def admin_user
