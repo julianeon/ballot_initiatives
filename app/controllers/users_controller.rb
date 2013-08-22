@@ -44,7 +44,15 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@users = User.all.page(params[:page])
+		@req = params[:req]
+
+		if @req == "std"
+			@users = User.where(:admin => false).page(params[:page])
+		elsif @req == "adm"
+			@users = User.where(:admin => true).page(params[:page])
+		else
+			@users = User.all.page(params[:page])
+		end
 	end
 
 	def show
