@@ -44,13 +44,18 @@ class UsersController < ApplicationController
 	end
 
 	def index
+		# Get the current @requested parameter from the users#index page.
 		@req = params[:req]
 
-		if @req == "std"
+		if @req == "std" # If the viewer wants to filter only standard (non-admin) users...
+			# ...the @users collection is all non-admin users.
 			@users = User.where(:admin => false).page(params[:page])
-		elsif @req == "adm"
+
+		elsif @req == "adm" # If the viewer wants to filter only admin users...
+			# ...the @users collection is all admin users.
 			@users = User.where(:admin => true).page(params[:page])
-		else
+
+		else # Otherwise, the default @users collection is all users.
 			@users = User.all.page(params[:page])
 		end
 	end
