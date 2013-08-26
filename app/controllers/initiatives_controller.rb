@@ -25,7 +25,7 @@ class InitiativesController < ApplicationController
 		@initiative = current_user.initiatives.build(initiative_params)
 
 		# Set @initiative.last_edited_by to be the id of the currently signed-in user upon creation
-		@initiative.last_edited_by = current_user.id
+		last_editing_user
 
 		respond_to do |format|
 			if @initiative.save
@@ -45,6 +45,9 @@ class InitiativesController < ApplicationController
 	# PATCH/PUT /initiatives/1
 	# PATCH/PUT /initiatives/1.json
 	def update
+		# Set @initiative.last_edited_by to be the id of the currently signed-in user upon creation
+		last_editing_user
+
 		respond_to do |format|
 			if @initiative.update(initiative_params)
 				format.html { redirect_to @initiative, notice: 'Initiative was successfully updated.' }
@@ -70,6 +73,10 @@ class InitiativesController < ApplicationController
 		# Use callbacks to share common setup or constraints between actions.
 		def set_initiative
 			@initiative = Initiative.find(params[:id])
+		end
+
+		def last_editing_user
+			@initiative.last_edited_by = current_user.id
 		end
 
 		def correct_user
