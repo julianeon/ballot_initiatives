@@ -24,8 +24,15 @@ Initiatives
 		generated a migration, adding a user_id column to the Initiatives table
 			initiative.user_id == (the creating user's id)
 
+		generated a migration, adding a last_edited_by column to the Initiatives table
+			initiative.last_edited_by is:
+				set during initiative#create and initiative#update
+				set as current_user.id
+
 	initiative#show page
 		name the initiative's creator
+
+		track & name the last user who edited the initiative, and at what time
 		
 		add edit/delete/index links, and toggle their visibility based on who is viewing the initiative
 			admins and the creating user can see all links
