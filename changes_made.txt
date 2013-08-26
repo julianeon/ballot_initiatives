@@ -1,0 +1,101 @@
+CSS/Styling
+	give links a blue color - dark gray links were blending too much with default font (was not clear if a link was a link)
+	add vertical-alignment for <tr>'s containing gravatars
+	add .center for 'text-align: center;'
+	add .no-bul for non-bulleted <ul> lists
+	add styling for initiative-display tables on user#show pages
+
+Sign-up, and Sign-in/Sign-out functionality
+	users are automatically signed-in upon sign-up
+
+Nav-bar
+	change "Initiatives" to "Initiatives Index"
+
+	for non-signed-in users
+		can view/visit sign-up and sign-in pages
+		can sign-up and/or sign-in
+
+	for signed-in users
+		are redirected away from sessions#new and sessions#create actions
+
+Initiatives
+	Associate initiatives with users
+		they are created through users, and are associated with their creating user upon creation
+		generated a migration, adding a user_id column to the Initiatives table
+			initiative.user_id == (the creating user's id)
+
+	initiative#show page
+		name the initiative's creator
+		
+		add edit/delete/index links, and toggle their visibility based on who is viewing the initiative
+			admins and the creating user can see all links
+			all other users will only see the index-link
+
+	initiatives#index
+		arrange <h1> and 'link_to new_initiative_path' to be centered
+
+Users
+	users have gravatars. Kick ass!
+
+	Admin users
+		Can view users#index
+		Can view the profile of any user
+		Can delete users
+		Can NOT delete self
+		Can promote/demote users to/from admins (giving them admin permissions)
+
+		Can create initiatives
+		Can edit initiatives
+		Can delete initiatives
+		Can view initiatives#index
+		Can view any initiative
+
+	Standard users
+		Can NOT view users#index
+		Can only view their own profile
+		Can NOT delete other users
+		Can NOT promote/demote users to/from admins
+
+		Can create initiatives
+		Can edit their own initiatives - not the initiatives of other users
+		Can delete their own initiatives - not the initiatives of other users
+		Can view initiatives#index
+		Can view any initiative
+
+General info
+	users#show pages
+		add table listing all initiatives created by the user (paginated)
+
+	users#index
+		includes pagination
+
+		Add filters to change @users collection based on certain requests
+			standard-user-only request - lists all non-admin users
+			admin-user-only request - lists all admin-users
+			default request (none) - lists all users
+
+		Change filter links based on which filter is active
+			ie, if the current request is for admins-only
+				the admins-only request link is disabled
+				the standard-user-only request is enabled
+				the all-users request is enabled
+
+			if the current request is for standard-users-only
+				the admins-only request link is enabled
+				the standard-user-only request is disabled
+				the all-users request is enabled
+
+			if the current request is for all users
+				the admins-only request link is enabled
+				the standard-user-only request is enabled
+				the all-users request is disabled
+
+		Order users
+			for all-users filter
+				admins up top, sorted alphabetically -> standard users, sorted alphabetically
+
+			for admins-only-users filter
+				admins only, sorted alphabetically
+
+			for standard-users-only filter
+				standard users only, sorted alphabetically
