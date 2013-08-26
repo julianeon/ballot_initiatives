@@ -24,6 +24,9 @@ class InitiativesController < ApplicationController
 	def create
 		@initiative = current_user.initiatives.build(initiative_params)
 
+		# Set @initiative.last_edited_by to be the id of the currently signed-in user upon creation
+		@initiative.last_edited_by = current_user.id
+
 		respond_to do |format|
 			if @initiative.save
 				format.html { redirect_to @initiative, notice: 'Initiative was successfully created.' }
@@ -75,6 +78,6 @@ class InitiativesController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def initiative_params
-			params.require(:initiative).permit(:election_date, :prop_letter, :title, :description, :pass_fail, :yes_count, :no_count, :percent_required, :measure_type, :initiator, :scan_url, :user_id)
+			params.require(:initiative).permit(:election_date, :prop_letter, :title, :description, :pass_fail, :yes_count, :no_count, :percent_required, :measure_type, :initiator, :scan_url, :user_id, :last_edited_by)
 		end
 end
