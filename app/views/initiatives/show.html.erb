@@ -71,7 +71,7 @@
 <table>
 	<tr>
 		<% if current_user == @initiative.user || current_user.admin? %>
-			<td> <%= link_to 'Edit',   edit_initiative_path(@initiative) %>    | </td>
+			<td> <%= link_to 'Edit',   edit_initiative_path(@initiative) %>                  | </td>
 			<td> <%= link_to 'Delete', @initiative, method: :delete, confirm: "You sure?" %> | </td>
 		<% end %>
 
