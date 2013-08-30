@@ -89,3 +89,42 @@ div {
 		text-align: center;
 	}
 }
+
+.init_form {
+	.p15 {
+		padding-bottom: 15px;
+	}
+
+	.p6 {
+		padding-bottom: 6px;
+	}
+
+	#initiative_prop_letter {
+		width: 55px;
+	}
+
+	#initiative_title {
+		width: 250px;
+	}
+
+	#initiative_description {
+		width: 385px;
+	}
+
+	#initiative_yes_count, #initiative_no_count {
+		width: 85px;
+	}
+
+	#initiative_percent_required, #initiative_measure_type, #initiative_initiator, #initiative_scan_url {
+		width: 390px;
+	}
+}
+
+/* Resize datetime_select boxes */
+#initiative_election_date_1i, #initiative_election_date_2i, #initiative_election_date_3i {
+	width: 80px;
+}
+
+#initiative_election_date_4i, #initiative_election_date_5i {
+	width: 60px;
+}
