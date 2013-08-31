@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-	<strong>Posted by:</strong>
-	<%= @initiative.user.name %>
+	<strong>Owner:</strong>
+	<% if current_user.admin? || current_user == @initiative.user %>
+		<%= link_to @initiative.user.name, @initiative.user %>
+	<% else %>
+		<%= @initiative.user.name %>
+	<% end %>
 </p>
 
 <p>
