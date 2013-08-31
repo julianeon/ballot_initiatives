@@ -4,6 +4,7 @@ CSS/Styling
 	add .center for 'text-align: center;'
 	add .no-bul for non-bulleted <ul> lists
 	add styling for initiative-display tables on user#show pages
+	add styling for initiative form <table> on initiatives#new / initiatives#edit
 
 Sign-up, and Sign-in/Sign-out functionality
 	users are automatically signed-in upon sign-up
@@ -19,6 +20,11 @@ Nav-bar
 		are redirected away from sessions#new and sessions#create actions
 
 Initiatives
+	implement transfer-initiative-ownership functionality
+		done via initiatives#edit action
+
+	organize initiatives#new / initiatives#edit form into a <table>
+
 	Associate initiatives with users
 		they are created through users, and are associated with their creating user upon creation
 		generated a migration, adding a user_id column to the Initiatives table
@@ -30,7 +36,8 @@ Initiatives
 				set as current_user.id
 
 	initiative#show page
-		name the initiative's creator
+		name the initiative's present owner
+		make the initiative's present owner a link_to that owner (admins & correct_user only)
 
 		track & name the last user who edited the initiative, and at what time
 		
@@ -56,6 +63,7 @@ Users
 		Can delete initiatives
 		Can view initiatives#index
 		Can view any initiative
+		Can transfer ownership of any initiative (via initiatives#edit)
 
 	Standard users
 		Can NOT view users#index
@@ -68,10 +76,12 @@ Users
 		Can delete their own initiatives - not the initiatives of other users
 		Can view initiatives#index
 		Can view any initiative
+		Can transfer ownership of their own initiatives (via initiatives#edit) - not the initiatives of other users
 
-General info
+General
 	users#show pages
 		add table listing all initiatives created by the user (paginated)
+		make initiative.id link_to that initiative's show page
 
 	users#index
 		includes pagination
@@ -82,7 +92,7 @@ General info
 			default request (none) - lists all users
 
 		Change filter links based on which filter is active
-			ie, if the current request is for admins-only
+			if the current request is for admins-only
 				the admins-only request link is disabled
 				the standard-user-only request is enabled
 				the all-users request is enabled
