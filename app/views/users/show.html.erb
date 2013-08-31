@@ -32,8 +32,8 @@
 				<tbody>
 					<% @initiatives.each do |initiative| %>
 						<tr class="<%= cycle('list_line_odd', 'list_line_even') %>" >
-							<td><%= initiative.id %></td>
-							<td><%= link_to initiative.title, initiative %></td>
+							<td><%= link_to initiative.id, initiative %></td>
+							<td><%= initiative.title %></td>
 							<td><%= initiative.pass_fail ? "yes" : "no" %></td>
 							<td><%= initiative.measure_type %></td>
 						</tr>
