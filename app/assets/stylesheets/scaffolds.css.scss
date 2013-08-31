@@ -94,12 +94,14 @@ div {
 }
 
 .init_form {
+	text-align: right;
+
 	.p15 {
 		padding-bottom: 15px;
 	}
 
-	.p6 {
-		padding-bottom: 6px;
+	.p8 {
+		padding-bottom: 8px;
 	}
 
 	#initiative_prop_letter {
@@ -115,12 +117,16 @@ div {
 	}
 
 	#initiative_yes_count, #initiative_no_count {
-		width: 85px;
+		width: 76px;
 	}
 
 	#initiative_percent_required, #initiative_measure_type, #initiative_initiator, #initiative_scan_url {
 		width: 390px;
 	}
+}
+
+.color_red {
+	color: #b00;
 }
 
 /* Resize datetime_select boxes */
