@@ -92,7 +92,7 @@
 	</table>
 
 	<!-- Transfer-ownership section for admins & @initiative.user -->
-	<% if current_user == @initiative.user || current_user.admin? %>
+	<% if controller.controller_name == "initiatives" && controller.action_name == "edit" %>
 		<hr>
 
 		<p class="color_red">Danger zone: Transfer ownership of this initiative to another user.</p>
