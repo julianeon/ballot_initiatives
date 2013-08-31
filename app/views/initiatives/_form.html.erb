@@ -13,7 +13,7 @@
 
 		<!-- prop_letter & title row -->
 		<tr>
-			<td class="p6"><%= f.label :prop_letter %></td>
+			<td class="p8"><%= f.label :prop_letter %></td>
 			<td></td>
 			<td>
 				<table>
@@ -22,7 +22,7 @@
 
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-						<td class="p6"><%= f.label :title %></td>
+						<td class="p8"><%= f.label :title %></td>
 						<td>&nbsp;&nbsp;</td>
 						<td><%= f.text_field :title %></td>
 					</tr>
@@ -48,14 +48,14 @@
 
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-						<td class="p6"><%= f.label :yes_count %></td>
-						<td></td>
+						<td class="p8"><%= f.label :yes_count %></td>
+						<td>&nbsp;&nbsp;</td>
 						<td><%= f.number_field :yes_count %></td>
 
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-						<td class="p6"><%= f.label :no_count %></td>
-						<td></td>
+						<td class="p8"><%= f.label :no_count %></td>
+						<td>&nbsp;&nbsp;</td>
 						<td><%= f.number_field :no_count %></td>
 					</tr>
 				</table>				
@@ -64,32 +64,50 @@
 
 		<!-- percent_required row -->
 		<tr>
-			<td class="p6"><%= f.label :percent_required %></td>
+			<td class="p8"><%= f.label :percent_required %></td>
 			<td></td>
 			<td><%= f.text_field :percent_required %></td>
 		</tr>
 
 		<!-- measure_type row -->
 		<tr>
-			<td class="p6"><%= f.label :measure_type %></td>
+			<td class="p8"><%= f.label :measure_type %></td>
 			<td></td>
 			<td><%= f.text_field :measure_type %></td>
 		</tr>
 
 		<!-- initiator row -->
 		<tr>
-			<td class="p6"><%= f.label :initiator %></td>
+			<td class="p8"><%= f.label :initiator %></td>
 			<td></td>
 			<td><%= f.text_field :initiator %></td>
 		</tr>
 
 		<!-- scan_url row -->
 		<tr>
-			<td class="p6"><%= f.label :scan_url %></td>
+			<td class="p8"><%= f.label :scan_url %></td>
 			<td></td>
 			<td><%= f.text_field :scan_url %></td>
 		</tr>
 	</table>
+
+	<!-- Transfer-ownership section for admins & @initiative.user -->
+	<% if current_user == @initiative.user || current_user.admin? %>
+		<hr>
+
+		<p class="color_red">Danger zone: Transfer ownership of this initiative to another user.</p>
+		<p>(Default user id is your user id - do not change unless you want to change the owner of this initiative.)</p>
+
+		<br>
+
+		<table class="init_form">
+			<tr>
+				<td class="p15">Transfer ownership of this initiative to user (id): </td>
+				<td>&nbsp;&nbsp;</td>
+				<td><%= text_field(:initiative, :user_id) %></td>
+			</tr>
+		</table>
+	<% end %>
 
 	<hr>
 
