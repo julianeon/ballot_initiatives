@@ -2,7 +2,15 @@
   <%= javascript_include_tag 'initiativer' %>
 <% end -%>
 
-<h1>San Francisco Initiatives</h1>
+<span class="center">
+  <h1>San Francisco Initiatives</h1>
+  <hr>
+  
+  <% if signed_in? %>
+    <p><%= link_to 'New Initiative', new_initiative_path %></p>
+    <hr>
+  <% end %>
+</span>
 
 <%= paginate @initiatives %>
 
@@ -44,7 +52,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Initiative', new_initiative_path %>

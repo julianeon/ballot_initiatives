@@ -1,69 +1,139 @@
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+	background-color: #fff;
+	color: #333;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
 }
 
 pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+	background-color: #eee;
+	padding: 10px;
+	font-size: 11px;
 }
 
 a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+	color: #03f;
+	&:visited {
+	color: #03f;	
+	}
+
+	&:hover {
+		color: #fff;
+		background-color: #000;
+	}
 }
 
 div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
+	&.field, &.actions {
+		margin-bottom: 10px;
+	}
 }
 
 #notice {
-  color: green;
+	color: green;
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+	padding: 2px;
+	background-color: red;
+	display: table;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+	width: 450px;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 0;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+
+	h2 {
+		text-align: left;
+		font-weight: bold;
+		padding: 5px 5px 5px 15px;
+		font-size: 12px;
+		margin: -7px;
+		margin-bottom: 0px;
+		background-color: #c00;
+		color: #fff;
+	}
+
+	ul li {
+		font-size: 12px;
+		list-style: square;
+	}
+}
+
+.chng_grvtr tr {
+	vertical-align: top;
+}
+
+.center {
+	text-align: center;
+}
+
+.no-bul {
+	list-style: none;
+}
+
+.initiatives {
+	td {
+		width: 100px;
+	}
+
+	td {
+		text-align: center;
+	}
+}
+
+.init_form {
+	text-align: right;
+
+	.p15 {
+		padding-bottom: 15px;
+	}
+
+	.p8 {
+		padding-bottom: 8px;
+	}
+
+	#initiative_prop_letter {
+		width: 55px;
+	}
+
+	#initiative_title {
+		width: 250px;
+	}
+
+	#initiative_description {
+		width: 385px;
+	}
+
+	#initiative_yes_count, #initiative_no_count {
+		width: 76px;
+	}
+
+	#initiative_percent_required, #initiative_measure_type, #initiative_initiator, #initiative_scan_url {
+		width: 390px;
+	}
+}
+
+.color_red {
+	color: #b00;
+}
+
+/* Resize datetime_select boxes */
+#initiative_election_date_1i, #initiative_election_date_2i, #initiative_election_date_3i {
+	width: 80px;
+}
+
+#initiative_election_date_4i, #initiative_election_date_5i {
+	width: 60px;
 }

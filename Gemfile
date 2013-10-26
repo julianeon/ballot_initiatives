@@ -1,28 +1,30 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '>= 1.3.3', :group => :development
 
-gem 'pg', "~> 0.16.0"
+# bcrypt-ruby for secure passwords for Users
+gem 'bcrypt-ruby', '3.0.1'
 
-# Use SCSS for stylesheets
-gem 'sass-rails'#, '~> 4.0.0.rc1'
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 
-gem 'jquery-rails'
+group :production do
+	gem 'pg', "~> 0.16.0"
+end
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+group :assets do
+  # Use SCSS for stylesheets
+	gem 'sass-rails'#, '~> 4.0.0.rc1'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+  # Use CoffeeScript for .js.coffee assets and views
+	gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+  # Use Uglifier as compressor for JavaScript assets
+	gem 'uglifier', '>= 1.3.0'
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -43,15 +45,3 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

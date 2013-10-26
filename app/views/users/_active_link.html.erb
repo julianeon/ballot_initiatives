@@ -1,0 +1,22 @@
+<table>
+	<tr>
+		<td>Filter:&nbsp;&nbsp;&nbsp;</td>
+
+		<% if @req == "all" || @req.nil? %>
+			<td> All Users |                                              </td>
+			<td> <%= link_to "Non-Admin",  users_path(:req => "std") %> | </td>
+			<td> <%= link_to "Admin Only", users_path(:req => "adm") %>   </td>
+
+		<% elsif @req == "std" %>
+			<td> <%= link_to "All Users",  users_path(:req => "all") %> | </td>
+			<td> Non-Admin |                                              </td>
+			<td> <%= link_to "Admin Only", users_path(:req => "adm") %>   </td>
+
+		<% elsif @req == "adm" %>
+			<td> <%= link_to "All Users",  users_path(:req => "all") %> | </td>
+			<td> <%= link_to "Non-Admin",  users_path(:req => "std") %> | </td>
+			<td> Admin Only                                               </td>
+		<% end %>
+
+	</tr>
+</table>

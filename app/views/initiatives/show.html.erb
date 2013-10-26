@@ -1,59 +1,86 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Election date:</strong>
-  <%= @initiative.election_date %>
+	<strong>Owner:</strong>
+	<% if current_user.admin? || current_user == @initiative.user %>
+		<%= link_to @initiative.user.name, @initiative.user %>
+	<% else %>
+		<%= @initiative.user.name %>
+	<% end %>
 </p>
 
 <p>
-  <strong>Prop letter:</strong>
-  <%= @initiative.prop_letter %>
+	<strong>Last edited by:</strong>
+	<%= User.find(@initiative.last_edited_by).name %> (<%= @initiative.updated_at.strftime('%-m/%-d/%Y - %l:%M:%S %P %Z') %>)
+</p>
+<hr>
+
+<p>
+	<strong>Election date:</strong>
+	<%= @initiative.election_date %>
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @initiative.title %>
+	<strong>Prop letter:</strong>
+	<%= @initiative.prop_letter %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @initiative.description %>
+	<strong>Title:</strong>
+	<%= @initiative.title %>
 </p>
 
 <p>
-  <strong>Pass fail:</strong>
-  <%= @initiative.pass_fail %>
+	<strong>Description:</strong>
+	<%= @initiative.description %>
 </p>
 
 <p>
-  <strong>Yes count:</strong>
-  <%= @initiative.yes_count %>
+	<strong>Pass fail:</strong>
+	<%= @initiative.pass_fail %>
 </p>
 
 <p>
-  <strong>No count:</strong>
-  <%= @initiative.no_count %>
+	<strong>Yes count:</strong>
+	<%= @initiative.yes_count %>
 </p>
 
 <p>
-  <strong>Percent required:</strong>
-  <%= @initiative.percent_required %>
+	<strong>No count:</strong>
+	<%= @initiative.no_count %>
 </p>
 
 <p>
-  <strong>Measure type:</strong>
-  <%= @initiative.measure_type %>
+	<strong>Percent required:</strong>
+	<%= @initiative.percent_required %>
 </p>
 
 <p>
-  <strong>Initiator:</strong>
-  <%= @initiative.initiator %>
+	<strong>Measure type:</strong>
+	<%= @initiative.measure_type %>
 </p>
 
 <p>
-  <strong>Scan url:</strong>
-  <%= @initiative.scan_url %>
+	<strong>Initiator:</strong>
+	<%= @initiative.initiator %>
 </p>
 
-<%= link_to 'Edit', edit_initiative_path(@initiative) %> |
-<%= link_to 'Back', initiatives_path %>
+<p>
+	<strong>Scan url:</strong>
+	<%= @initiative.scan_url %>
+</p>
+
+<hr>
+
+<table>
+	<tr>
+		<% if current_user == @initiative.user || current_user.admin? %>
+			<td> <%= link_to 'Edit',   edit_initiative_path(@initiative) %>                  | </td>
+			<td> <%= link_to 'Delete', @initiative, method: :delete, confirm: "You sure?" %> | </td>
+		<% end %>
+
+		<td>
+			<%= link_to 'Index', initiatives_path %>
+		</td>
+	</tr>
+</table>
