@@ -45,7 +45,7 @@ class InitiativesController < ApplicationController
 	# PATCH/PUT /initiatives/1
 	# PATCH/PUT /initiatives/1.json
 	def update
-		# Set @initiative.last_edited_by to be the id of the currently signed-in user upon creation
+		# Set @initiative.last_edited_by to be the id of the currently signed-in user upon editing
 		last_editing_user
 
 		respond_to do |format|
