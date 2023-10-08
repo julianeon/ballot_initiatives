@@ -1,5 +1,7 @@
 == README
 
+This was part of a group project I helped with for the organization now called Code for San Francisco.
+
 This site has been pushed to Heroku and seeded with all of California's initiative data.
 
 You can find it at http://salty-plains-1544.herokuapp.com.
